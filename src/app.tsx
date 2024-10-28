@@ -1,6 +1,6 @@
 import { AvatarDropdown, AvatarName, Footer, SelectLang } from '@/components';
 import { getLoginUserUsingGet } from '@/services/learning-compass/userController';
-import type { Settings as LayoutSettings } from '@ant-design/pro-components';
+import { Settings as LayoutSettings, PageLoading } from '@ant-design/pro-components';
 import type { RunTimeLayoutConfig } from '@umijs/max';
 import { history } from '@umijs/max';
 import defaultSettings from '../config/defaultSettings';
@@ -86,29 +86,12 @@ export const layout: RunTimeLayoutConfig = ({ initialState }) => {
     ],
     menuHeaderRender: undefined,
     // 自定义 403 页面
-    // unAccessible: <div>unAccessible</div>,
+    unAccessible: <div>unAccessible</div>,
     // 增加一个 loading 的状态
-    // childrenRender: (children) => {
-    //   // if (initialState?.loading) return <PageLoading />;
-    //   return (
-    //     <>
-    //       {children}
-    //       {isDev && (
-    //         <SettingDrawer
-    //           disableUrlParams
-    //           enableDarkTheme
-    //           settings={initialState?.settings}
-    //           onSettingChange={(settings) => {
-    //             setInitialState((preInitialState) => ({
-    //               ...preInitialState,
-    //               settings,
-    //             }));
-    //           }}
-    //         />
-    //       )}
-    //     </>
-    //   );
-    // },
+    childrenRender: (children) => {
+      if (initialState?.loading) return <PageLoading />;
+      return <>{children}</>;
+    },
     ...initialState?.settings,
   };
 };
@@ -119,5 +102,7 @@ export const layout: RunTimeLayoutConfig = ({ initialState }) => {
  * @doc https://umijs.org/docs/max/request#配置
  */
 export const request = {
+  baseURL: "http://localhost:8080",
+  withCredentials: true,
   ...errorConfig,
 };

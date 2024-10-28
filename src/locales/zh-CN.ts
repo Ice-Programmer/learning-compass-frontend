@@ -1,3 +1,4 @@
+import messages from '@/locales/zh-CN/messages';
 import component from './zh-CN/component';
 import globalHeader from './zh-CN/globalHeader';
 import menu from './zh-CN/menu';
@@ -15,6 +16,7 @@ export default {
   'app.welcome.link.fetch-blocks': '获取全部区块',
   'app.welcome.link.block-list': '基于 block 开发，快速构建标准页面',
   ...pages,
+  ...messages,
   ...globalHeader,
   ...menu,
   ...settingDrawer,

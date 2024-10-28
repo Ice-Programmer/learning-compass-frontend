@@ -1,13 +1,14 @@
 import { userLogoutUsingPost } from '@/services/learning-compass/userController';
 import { LogoutOutlined, SettingOutlined, UserOutlined } from '@ant-design/icons';
 import { FormattedMessage, history, useModel } from '@umijs/max';
-import { Spin } from 'antd';
+import { message, Spin } from 'antd';
 import { createStyles } from 'antd-style';
 import { stringify } from 'querystring';
 import type { MenuInfo } from 'rc-menu/lib/interface';
 import React, { useCallback } from 'react';
 import { flushSync } from 'react-dom';
 import HeaderDropdown from '../HeaderDropdown';
+import { useIntl } from '@@/exports';
 
 export type GlobalHeaderRightProps = {
   menu?: boolean;
@@ -39,11 +40,19 @@ const useStyles = createStyles(({ token }) => {
 });
 
 export const AvatarDropdown: React.FC<GlobalHeaderRightProps> = ({ menu, children }) => {
+
+  const intl = useIntl();
+
   /**
    * 退出登录，并且将当前的 url 保存
    */
   const loginOut = async () => {
-    await userLogoutUsingPost();
+    const res = await userLogoutUsingPost();
+    if (res.code === 0) {
+      message.success(
+        intl.formatMessage({ id: 'pages.login.logout.success', defaultMessage: '退出登录成功!' }),
+      );
+    }
     const { search, pathname } = window.location;
     const urlParams = new URL(window.location.href).searchParams;
     /** 此方法会跳转到 redirect 参数所在的位置 */

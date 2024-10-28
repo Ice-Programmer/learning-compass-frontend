@@ -5,6 +5,7 @@ export default {
     'ユーザー名/パスワードが正しくありません(admin/ant.design)',
   'pages.login.failure': 'ログインに失敗したら、もう一度試してください!',
   'pages.login.success': 'ログイン成功!',
+  'pages.login.logout.success': 'ログアウトに成功しました！',
   'pages.login.username.placeholder': 'ユーザー名を入力してください',
   'pages.login.username.required': 'ユーザー名を入力してください！',
   'pages.login.password.placeholder': 'パスワードを入力してください',

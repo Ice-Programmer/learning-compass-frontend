@@ -1,4 +1,5 @@
 import { Footer } from '@/components';
+import { userLoginUsingPost } from '@/services/learning-compass/userController';
 import { LockOutlined, MailOutlined, UserOutlined } from '@ant-design/icons';
 import {
   LoginForm,
@@ -6,8 +7,8 @@ import {
   ProFormCheckbox,
   ProFormText,
 } from '@ant-design/pro-components';
-import { FormattedMessage, Helmet, SelectLang, useIntl, useModel } from '@umijs/max';
-import { Alert, Tabs } from 'antd';
+import { FormattedMessage, Helmet, history, SelectLang, useIntl, useModel } from '@umijs/max';
+import { message, Tabs } from 'antd';
 import { createStyles } from 'antd-style';
 import React, { useState } from 'react';
 import { flushSync } from 'react-dom';
@@ -59,21 +60,6 @@ const Lang = () => {
   );
 };
 
-const LoginMessage: React.FC<{
-  content: string;
-}> = ({ content }) => {
-  return (
-    <Alert
-      style={{
-        marginBottom: 24,
-      }}
-      message={content}
-      type="error"
-      showIcon
-    />
-  );
-};
-
 const Login: React.FC = () => {
   const [type, setType] = useState<string>('account');
   const { initialState, setInitialState } = useModel('@@initialState');
@@ -90,48 +76,31 @@ const Login: React.FC = () => {
         }));
       });
     }
-
-
   };
   const handleSubmit = async (values: API.UserLoginRequest) => {
-    // try {
-    //   // 登录
-    //   const msg = await userLoginUsingPost({ ...values});
-    //   if (msg.status === 'ok') {
-    //     const defaultLoginSuccessMessage = intl.formatMessage({
-    //       id: 'pages.login.success',
-    //       defaultMessage: '登录成功！',
-    //     });
-    //     message.success(defaultLoginSuccessMessage);
-    //     await fetchUserInfo();
-    //     const urlParams = new URL(window.location.href).searchParams;
-    //     history.push(urlParams.get('redirect') || '/');
-    //     return;
-    //   }
-    //   console.log(msg);
-    //   // 如果失败去设置用户错误信息
-    //   setUserLoginState(msg);
-    // } catch (error) {
-    //   const defaultLoginFailureMessage = intl.formatMessage({
-    //     id: 'pages.login.failure',
-    //     defaultMessage: '登录失败，请重试！',
-    //   });
-    //   console.log(error);
-    //   message.error(defaultLoginFailureMessage);
-    // }
+    try {
+      // 登录
+      const res = await userLoginUsingPost({ ...values });
+      if (res.code === 0) {
+        message.success(
+          intl.formatMessage({ id: 'pages.login.success', defaultMessage: '登录成功!' }),
+        );
+        await fetchUserInfo();
+        const urlParams = new URL(window.location.href).searchParams;
+        history.push(urlParams.get('redirect') || '/');
+        return;
+      } else {
+        message.error(
+          intl.formatMessage({ id: 'pages.login.failure', defaultMessage: '登录失败，请重试' }),
+        );
+      }
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
     <div className={styles.container}>
-      <Helmet>
-        <title>
-          {intl.formatMessage({
-            id: 'menu.login',
-            defaultMessage: '登录页',
-          })}
-          - {Settings.title}
-        </title>
-      </Helmet>
       <Lang />
       <div
         style={{
@@ -179,7 +148,7 @@ const Login: React.FC = () => {
           {type === 'account' && (
             <>
               <ProFormText
-                name="username"
+                name="userAccount"
                 fieldProps={{
                   size: 'large',
                   prefix: <UserOutlined />,
@@ -201,7 +170,7 @@ const Login: React.FC = () => {
                 ]}
               />
               <ProFormText.Password
-                name="password"
+                name="userPassword"
                 fieldProps={{
                   size: 'large',
                   prefix: <LockOutlined />,
