@@ -67,4 +67,6 @@ export default {
   'pages.searchTable.tenThousand': '万',
   'pages.searchTable.batchDeletion': 'バッチ削除',
   'pages.searchTable.batchApproval': 'バッチ承認',
+  'pages.home.content.title': '学びを極め、卓越した存在となる',
+  'pages.home.content.content': '時間をマスターし、人生を向上させるオンライン学習プラットフォーム',
 };

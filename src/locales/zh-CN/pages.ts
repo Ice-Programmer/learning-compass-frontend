@@ -65,4 +65,9 @@ export default {
   'pages.searchTable.tenThousand': '万',
   'pages.searchTable.batchDeletion': '批量删除',
   'pages.searchTable.batchApproval': '批量审批',
+  'pages.home.button.title': '开启学习之旅',
+  'pages.home.content.title': '学有所成，卓尔不凡',
+  'pages.home.content.content': '在线学习网站，帮助你掌握时间，提升人生',
+
+
 };

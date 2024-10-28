@@ -1,7 +1,8 @@
 export default {
   'pages.layouts.userLayout.title': 'Learning Compass - "Обучение доступно в один клик."',
   'pages.login.accountLogin.tab': 'Вход по аккаунту',
-  'pages.login.accountLogin.errorMessage': 'Неверное имя пользователя или пароль (admin/ant.design)',
+  'pages.login.accountLogin.errorMessage':
+    'Неверное имя пользователя или пароль (admin/ant.design)',
   'pages.login.failure': 'Ошибка входа. Пожалуйста, повторите попытку!',
   'pages.login.success': 'Успешный вход!',
   'pages.login.logout.success': 'Вы успешно вышли из системы!',
@@ -28,15 +29,18 @@ export default {
   'pages.404.subTitle': 'Извините, запрашиваемая страница не существует.',
   'pages.404.buttonText': 'Вернуться на главную страницу',
   'pages.admin.subPage.title': 'Эта страница доступна только администраторам',
-  'pages.admin.subPage.alertMessage': 'Теперь доступен пользовательский интерфейс Umi. Запустите его с помощью команды npm run ui.',
+  'pages.admin.subPage.alertMessage':
+    'Теперь доступен пользовательский интерфейс Umi. Запустите его с помощью команды npm run ui.',
   'pages.searchTable.createForm.newRule': 'Создать новое правило',
   'pages.searchTable.updateForm.ruleConfig': 'Конфигурация правила',
   'pages.searchTable.updateForm.basicConfig': 'Базовая информация',
   'pages.searchTable.updateForm.ruleName.nameLabel': 'Название правила',
   'pages.searchTable.updateForm.ruleName.nameRules': 'Пожалуйста, введите название правила!',
   'pages.searchTable.updateForm.ruleDesc.descLabel': 'Описание правила',
-  'pages.searchTable.updateForm.ruleDesc.descPlaceholder': 'Пожалуйста, введите описание (минимум пять символов)',
-  'pages.searchTable.updateForm.ruleDesc.descRules': 'Пожалуйста, введите описание (минимум пять символов)!',
+  'pages.searchTable.updateForm.ruleDesc.descPlaceholder':
+    'Пожалуйста, введите описание (минимум пять символов)',
+  'pages.searchTable.updateForm.ruleDesc.descRules':
+    'Пожалуйста, введите описание (минимум пять символов)!',
   'pages.searchTable.updateForm.ruleProps.title': 'Конфигурация свойств правила',
   'pages.searchTable.updateForm.object': 'Объект мониторинга',
   'pages.searchTable.updateForm.ruleProps.templateLabel': 'Шаблон правила',
@@ -65,4 +69,8 @@ export default {
   'pages.searchTable.tenThousand': 'тыс.',
   'pages.searchTable.batchDeletion': 'Массовое удаление',
   'pages.searchTable.batchApproval': 'Массовое утверждение',
+  'pages.home.button.title': 'Начать ваше учебное путешествие',
+  'pages.home.content.title': 'Достигайте мастерства, выделяйтесь выдающейся личностью',
+  'pages.home.content.content': 'Онлайн-платформа для обучения, помогающая овладеть временем и поднять уровень жизни'
+
 };
