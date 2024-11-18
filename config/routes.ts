@@ -25,8 +25,33 @@ export default [
   {
     path: '/',
     name: '',
-    component: './Home',
+    component: './HomePage',
     hideInMenu: true,
+  },
+  {
+    path: '/course',
+    name: 'course',
+    routes: [
+      {
+        path: '/course',
+        component: './CoursePage/CourseListPage',
+      },
+      {
+        path: '/course/detail/:courseId',
+        component: './CoursePage/CourseDetailPage',
+        hideInMenu: true,
+      }
+    ],
+  },
+  {
+    path: '/community',
+    name: 'community',
+    component: './CommunityPage/CommunityHomePage',
+  },
+  {
+    path: 'learning',
+    name: 'learning',
+    component: './LearningPage/LearningHomePage',
   },
   // {
   //   path: '/admin',

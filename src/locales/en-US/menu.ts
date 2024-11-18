@@ -1,6 +1,9 @@
 export default {
   'menu.welcome': 'Welcome',
   'menu.more-blocks': 'More Blocks',
+  'menu.course': 'Course',
+  'menu.community': 'Community',
+  'menu.learning': 'Learning',
   'menu.home': 'Home',
   'menu.admin': 'Admin',
   'menu.admin.sub-page': 'Sub-Page',

@@ -1,6 +1,9 @@
 export default {
   'menu.welcome': 'Добро пожаловать',
   'menu.more-blocks': 'Дополнительные блоки',
+  'menu.course': 'Курс',
+  'menu.community': 'Сообщество',
+  'menu.learning': 'Посещение',
   'menu.home': 'Главная',
   'menu.admin': 'Страница администратора',
   'menu.admin.sub-page': 'Вторичная страница администратора',

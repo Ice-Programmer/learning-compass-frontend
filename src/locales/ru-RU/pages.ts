@@ -71,6 +71,8 @@ export default {
   'pages.searchTable.batchApproval': 'Массовое утверждение',
   'pages.home.button.title': 'Начать ваше учебное путешествие',
   'pages.home.content.title': 'Достигайте мастерства, выделяйтесь выдающейся личностью',
-  'pages.home.content.content': 'Онлайн-платформа для обучения, помогающая овладеть временем и поднять уровень жизни'
-
+  'pages.home.content.content':
+    'Онлайн-платформа для обучения, помогающая овладеть временем и поднять уровень жизни',
+  'pages.course.search.placeholder': 'Введите поисковый запрос',
+  'pages.course.search.button': 'Поиск',
 };

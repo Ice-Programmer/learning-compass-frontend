@@ -1,8 +1,8 @@
 import { AvatarDropdown, AvatarName, Footer, SelectLang } from '@/components';
 import { getLoginUserUsingGet } from '@/services/learning-compass/userController';
 import { Settings as LayoutSettings, PageLoading } from '@ant-design/pro-components';
-import type { RunTimeLayoutConfig } from '@umijs/max';
-import { history } from '@umijs/max';
+import { history, RunTimeLayoutConfig } from '@umijs/max';
+import { message } from 'antd';
 import defaultSettings from '../config/defaultSettings';
 import { errorConfig } from './requestErrorConfig';
 
@@ -20,6 +20,9 @@ export async function getInitialState(): Promise<{
   const fetchUserInfo = async () => {
     try {
       const res = await getLoginUserUsingGet();
+      if (res.code !== 0) {
+        message.error(res.message);
+      }
       return res.data;
     } catch (error) {
       history.push(loginPath);
@@ -102,7 +105,7 @@ export const layout: RunTimeLayoutConfig = ({ initialState }) => {
  * @doc https://umijs.org/docs/max/request#配置
  */
 export const request = {
-  baseURL: "http://localhost:8080",
+  baseURL: 'http://localhost:8080',
   withCredentials: true,
   ...errorConfig,
 };

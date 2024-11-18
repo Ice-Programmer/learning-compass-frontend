@@ -52,4 +52,10 @@ export default {
   'app.settings.notification.todo-description': '待办任务将以站内信的形式通知',
   'app.settings.open': '开',
   'app.settings.close': '关',
+  'user.role.student': '学生',
+  'user.role.teacher': '教师',
+  'user.role.admin': '管理员',
+  'user.role.super-admin': '学生',
+  'user.role.ban': '被封号',
+  'user.role.user': '普通用户',
 };

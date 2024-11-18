@@ -26,7 +26,7 @@ export default {
   'pages.welcome.link': 'Welcome',
   'pages.welcome.alertMessage': 'Faster and stronger heavy-duty components have been released.',
   'pages.404.subTitle': 'Sorry, the page you visited does not exist.',
-  'pages.404.buttonText': 'Back Home',
+  'pages.404.buttonText': 'Back HomePage',
   'pages.admin.subPage.title': 'This page can only be viewed by Admin',
   'pages.admin.subPage.alertMessage':
     'Umi ui is now released, welcome to use npm run ui to start the experience.',
@@ -71,4 +71,6 @@ export default {
   'pages.home.content.title': 'Achieve Mastery, Stand Out Exceptionally',
   'pages.home.content.content':
     'An online learning platform that helps you master time and elevate your life',
+  'pages.course.search.placeholder': 'Please enter search content',
+  'pages.course.search.button': 'Search',
 };

@@ -5,6 +5,7 @@ import pages from './ru-RU/pages';
 import pwa from './ru-RU/pwa';
 import settingDrawer from './ru-RU/settingDrawer';
 import settings from './ru-RU/settings';
+import coursePage from '@/locales/ru-RU/coursePage';
 
 export default {
   'navBar.lang': 'Язык',
@@ -21,4 +22,5 @@ export default {
   ...settings,
   ...pwa,
   ...component,
+  ...coursePage,
 };

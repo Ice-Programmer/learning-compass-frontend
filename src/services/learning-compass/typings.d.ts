@@ -17,6 +17,12 @@ declare namespace API {
     message?: string;
   };
 
+  type BaseResponseListResourceStudentVO_ = {
+    code?: number;
+    data?: ResourceStudentVO[];
+    message?: string;
+  };
+
   type BaseResponseLoginUserVO_ = {
     code?: number;
     data?: LoginUserVO;
@@ -38,6 +44,12 @@ declare namespace API {
   type BaseResponsePageCourseVO_ = {
     code?: number;
     data?: PageCourseVO_;
+    message?: string;
+  };
+
+  type BaseResponsePagePostVO_ = {
+    code?: number;
+    data?: PagePostVO_;
     message?: string;
   };
 
@@ -70,6 +82,7 @@ declare namespace API {
     description?: string;
     endTime?: string;
     id?: number;
+    introduction?: string;
     isDelete?: number;
     name?: string;
     picture?: string;
@@ -118,6 +131,7 @@ declare namespace API {
   type CourseResourceAddRequest = {
     courseId?: number;
     resourceName?: string;
+    resourceType?: number;
     resourceUrl?: string;
   };
 
@@ -136,6 +150,7 @@ declare namespace API {
     description?: string;
     endTime?: string;
     id?: number;
+    introduction?: string;
     name?: string;
     picture?: string;
     startTime?: string;
@@ -150,6 +165,11 @@ declare namespace API {
 
   type disbandCourseUsingPOSTParams = {
     id?: number;
+  };
+
+  type getCourseResourceVOUsingGETParams = {
+    /** courseId */
+    courseId: number;
   };
 
   type getCourseVOByIdUsingGETParams = {
@@ -208,6 +228,19 @@ declare namespace API {
     total?: number;
   };
 
+  type PagePostVO_ = {
+    countId?: string;
+    current?: number;
+    maxLimit?: number;
+    optimizeCountSql?: boolean;
+    orders?: OrderItem[];
+    pages?: number;
+    records?: PostVO[];
+    searchCount?: boolean;
+    size?: number;
+    total?: number;
+  };
+
   type PageUser_ = {
     countId?: string;
     current?: number;
@@ -232,6 +265,68 @@ declare namespace API {
     searchCount?: boolean;
     size?: number;
     total?: number;
+  };
+
+  type PostAddRequest = {
+    content?: string;
+    courseId?: number;
+    name?: string;
+    pictureList?: string[];
+    postId?: number;
+    postType?: number;
+    tagList?: string[];
+  };
+
+  type PostQueryRequest = {
+    content?: string;
+    courseId?: number;
+    current?: number;
+    favourUserId?: number;
+    id?: number;
+    ids?: number[];
+    isReply?: number;
+    name?: string;
+    notId?: number;
+    pageSize?: number;
+    postId?: number;
+    postType?: number;
+    searchText?: string;
+    sortField?: string;
+    sortOrder?: string;
+    tagList?: string[];
+    thumbUserId?: number;
+    userId?: number;
+  };
+
+  type PostVO = {
+    content?: string;
+    courseId?: number;
+    createTime?: string;
+    favourNum?: number;
+    hasFavour?: boolean;
+    hasThumb?: boolean;
+    id?: number;
+    isReply?: number;
+    name?: string;
+    pictureList?: string[];
+    postId?: number;
+    postType?: number;
+    tagList?: string[];
+    thumbNum?: number;
+    updateTime?: string;
+    userInfo?: UserVO;
+    viewNum?: number;
+  };
+
+  type ResourceStudentVO = {
+    createTime?: string;
+    id?: number;
+    isRead?: boolean;
+    resourceName?: string;
+    resourceType?: number;
+    resourceUrl?: string;
+    viewNum?: number;
+    viewTime?: string;
   };
 
   type StudentJoinCourseRequest = {

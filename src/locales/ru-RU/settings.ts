@@ -45,11 +45,20 @@ export default {
   'app.settings.binding.dingding-description': 'Аккаунт Dingding не привязан',
   'app.settings.binding.bind': 'Привязать',
   'app.settings.notification.password': 'Пароль аккаунта',
-  'app.settings.notification.password-description': 'Уведомления о сообщениях от других пользователей будут отправляться внутри системы',
+  'app.settings.notification.password-description':
+    'Уведомления о сообщениях от других пользователей будут отправляться внутри системы',
   'app.settings.notification.messages': 'Системные сообщения',
-  'app.settings.notification.messages-description': 'Системные сообщения будут отправляться внутри системы',
+  'app.settings.notification.messages-description':
+    'Системные сообщения будут отправляться внутри системы',
   'app.settings.notification.todo': 'Задачи',
-  'app.settings.notification.todo-description': 'Уведомления о задачах будут отправляться внутри системы',
+  'app.settings.notification.todo-description':
+    'Уведомления о задачах будут отправляться внутри системы',
   'app.settings.open': 'Вкл',
   'app.settings.close': 'Выкл',
+  'user.role.student': 'Студент',
+  'user.role.teacher': 'Учитель',
+  'user.role.admin': 'Администратор',
+  'user.role.super-admin': 'Супер администратор',
+  'user.role.ban': 'Заблокирован',
+  'user.role.user': 'Обычный пользователь',
 };

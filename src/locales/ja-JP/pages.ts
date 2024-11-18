@@ -69,4 +69,6 @@ export default {
   'pages.searchTable.batchApproval': 'バッチ承認',
   'pages.home.content.title': '学びを極め、卓越した存在となる',
   'pages.home.content.content': '時間をマスターし、人生を向上させるオンライン学習プラットフォーム',
+  'pages.course.search.placeholder': '検索内容を入力してください',
+  'pages.course.search.button': '検索',
 };

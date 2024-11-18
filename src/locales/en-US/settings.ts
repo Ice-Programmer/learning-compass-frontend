@@ -57,4 +57,10 @@ export default {
     'The to-do list will be notified in the form of a letter from the station',
   'app.settings.open': 'Open',
   'app.settings.close': 'Close',
+  'user.role.student': 'Student',
+  'user.role.teacher': 'Teacher',
+  'user.role.admin': 'Admin',
+  'user.role.super-admin': 'Super Admin',
+  'user.role.ban': 'Banned',
+  'user.role.user': 'Regular User',
 };

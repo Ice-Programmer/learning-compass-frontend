@@ -1,4 +1,3 @@
-import messages from '@/locales/zh-CN/messages';
 import component from './zh-CN/component';
 import globalHeader from './zh-CN/globalHeader';
 import menu from './zh-CN/menu';
@@ -6,6 +5,7 @@ import pages from './zh-CN/pages';
 import pwa from './zh-CN/pwa';
 import settingDrawer from './zh-CN/settingDrawer';
 import settings from './zh-CN/settings';
+import coursePage from '@/locales/zh-CN/coursePage';
 
 export default {
   'navBar.lang': '语言',
@@ -16,11 +16,11 @@ export default {
   'app.welcome.link.fetch-blocks': '获取全部区块',
   'app.welcome.link.block-list': '基于 block 开发，快速构建标准页面',
   ...pages,
-  ...messages,
   ...globalHeader,
   ...menu,
   ...settingDrawer,
   ...settings,
   ...pwa,
   ...component,
+  ...coursePage,
 };

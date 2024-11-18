@@ -31,3 +31,17 @@ export async function deleteCourseUsingPost(
     ...(options || {}),
   });
 }
+
+/** getCourseResourceVO GET /api/course/resource/get/vo/${param0} */
+export async function getCourseResourceVoUsingGet(
+  // 叠加生成的Param类型 (非body参数swagger默认没有生成对象)
+  params: API.getCourseResourceVOUsingGETParams,
+  options?: { [key: string]: any },
+) {
+  const { courseId: param0, ...queryParams } = params;
+  return request<API.BaseResponseListResourceStudentVO_>(`/api/course/resource/get/vo/${param0}`, {
+    method: 'GET',
+    params: { ...queryParams },
+    ...(options || {}),
+  });
+}
