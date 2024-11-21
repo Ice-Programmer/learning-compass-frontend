@@ -1,9 +1,18 @@
+import { doPostFavourUsingPost } from '@/services/learning-compass/postFavourController';
+import { doThumbUsingPost } from '@/services/learning-compass/postThumbController';
 import { DateTimeUtil } from '@/utils/DateUtil';
 import { useIntl } from '@@/exports';
-import { EyeOutlined, LikeOutlined, MessageOutlined, StarOutlined } from '@ant-design/icons';
+import {
+  EyeOutlined,
+  LikeFilled,
+  LikeOutlined,
+  MessageOutlined,
+  StarFilled,
+  StarOutlined,
+} from '@ant-design/icons';
 import { FormattedMessage } from '@umijs/max';
-import { Avatar, Flex, List, Space, Typography } from 'antd';
-import React from 'react';
+import { Avatar, Flex, List, message, Space, Typography } from 'antd';
+import React, { useState } from 'react';
 import './index.less';
 
 const { Title, Paragraph, Text } = Typography;
@@ -23,12 +32,27 @@ const IconText = ({
 }) => (
   <Space onClick={onClick} style={{ cursor: 'pointer' }}>
     {React.createElement(icon)}
-    {text}
+    <Text style={{ userSelect: 'none' }} type={'secondary'}>
+      {text}
+    </Text>
   </Space>
 );
 
+const LikeFilledWithBlue = () => {
+  return <LikeFilled style={{ color: '#1677ff' }} />;
+};
+
+const StarFilledWithBlue = () => {
+  return <StarFilled style={{ color: '#1677ff' }} />;
+};
 const PostCard: React.FC<Props> = (props) => {
+  const { postVO } = props;
   const intl = useIntl();
+  const [hasThumb, setHasThumb] = useState<boolean>(postVO.hasThumb ?? false);
+  const [thumbNum, setThumbNum] = useState<number>(postVO.thumbNum ?? 0);
+  const [hasFavour, setHasFavour] = useState<boolean>(postVO.hasFavour ?? false);
+  const [favourNum, setFavourNum] = useState<number>(postVO.favourNum ?? 0);
+
   /**
    * 课程资料类型枚举
    */
@@ -59,25 +83,102 @@ const PostCard: React.FC<Props> = (props) => {
     },
   } as any;
 
-  const thumbPost = async (postId: number) => {};
-  const favourPost = async (postId: number) => {};
+  const thumbPost = async (postId: number) => {
+    try {
+      const res = await doThumbUsingPost({ postId: postId });
+      if (res.code === 0) {
+        if (res.data === 1) {
+          setHasThumb(true);
+          setThumbNum(thumbNum + 1);
+          message.success(
+            intl.formatMessage({
+              id: 'pages.note.thumb.do',
+              defaultMessage: '点赞成功!',
+            }),
+          );
+        } else if (res.data === -1) {
+          setHasThumb(false);
+          setThumbNum(thumbNum - 1);
+          message.success(
+            intl.formatMessage({
+              id: 'pages.note.thumb.cancel',
+              defaultMessage: '取消点赞成功!',
+            }),
+          );
+        }
+      } else {
+        const errorMsg =
+          intl.formatMessage({
+            id: 'pages.note.thumb.failure',
+            defaultMessage: '点赞失败!',
+          }) + res.message;
+        message.error(errorMsg);
+      }
+    } catch (err: any) {
+      const errorMsg =
+        intl.formatMessage({
+          id: 'pages.note.thumb.failure',
+          defaultMessage: '点赞失败!',
+        }) + err.message;
+      message.error(errorMsg);
+    }
+  };
 
-  const { postVO } = props;
+  const favourPost = async (postId: number) => {
+    try {
+      const res = await doPostFavourUsingPost({ postId: postId });
+      if (res.code === 0) {
+        if (res.data === 1) {
+          setHasFavour(true);
+          setFavourNum(favourNum + 1);
+          message.success(
+            intl.formatMessage({
+              id: 'pages.note.favour.do',
+              defaultMessage: '收藏成功!',
+            }),
+          );
+        } else if (res.data === -1) {
+          setHasFavour(false);
+          setFavourNum(favourNum - 1);
+          message.success(
+            intl.formatMessage({
+              id: 'pages.note.favour.cancel',
+              defaultMessage: '取消收藏成功!',
+            }),
+          );
+        }
+      } else {
+        const errorMsg =
+          intl.formatMessage({
+            id: 'pages.note.favour.failure',
+            defaultMessage: '收藏失败!',
+          }) + res.message;
+        message.error(errorMsg);
+      }
+    } catch (err: any) {
+      const errorMsg =
+        intl.formatMessage({
+          id: 'pages.note.favour.failure',
+          defaultMessage: '收藏失败!',
+        }) + err.message;
+      message.error(errorMsg);
+    }
+  };
   return (
     <div className="postCardItem">
       <List.Item
         actions={[
           <IconText
-            onClick={() => thumbPost(postVO.postId ?? 0)}
-            icon={StarOutlined}
-            text={postVO.thumbNum?.toString() ?? '0'}
-            key="list-vertical-star-o"
+            onClick={() => thumbPost(postVO.id ?? 0)}
+            icon={hasThumb ? LikeFilledWithBlue : LikeOutlined}
+            text={thumbNum.toString() ?? '0'}
+            key="list-vertical-like-o"
           />,
           <IconText
-            onClick={() => favourPost(postVO.postId ?? 0)}
-            icon={LikeOutlined}
-            text={postVO.favourNum?.toString() ?? '0'}
-            key="list-vertical-like-o"
+            onClick={() => favourPost(postVO.id ?? 0)}
+            icon={hasFavour ? StarFilledWithBlue : StarOutlined}
+            text={favourNum.toString() ?? '0'}
+            key="list-vertical-star-o"
           />,
           <IconText
             onClick={() => {}}

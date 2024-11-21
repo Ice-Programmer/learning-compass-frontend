@@ -20,6 +20,16 @@ export default [
         path: '/user/login',
         component: './User/Login',
       },
+      {
+        name: 'register',
+        path: '/user/register',
+        component: './User/RegisterPage',
+      },
+      {
+        name: 'change-password',
+        path: '/user/password/change',
+        component: './User/ChangePasswordPage',
+      },
     ],
   },
   {
@@ -40,7 +50,7 @@ export default [
         path: '/course/detail/:courseId',
         component: './CoursePage/CourseDetailPage',
         hideInMenu: true,
-      }
+      },
     ],
   },
   {

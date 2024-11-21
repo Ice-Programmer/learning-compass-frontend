@@ -14,4 +14,6 @@ export default {
   'component.noticeIcon.cleared': 'クリア済み',
   'component.noticeIcon.empty': '通知なし',
   'component.noticeIcon.view-more': 'もっと見る',
+  'component.user.logout': 'ログアウト',
+  'component.user.password.change': 'パスワード変更',
 };

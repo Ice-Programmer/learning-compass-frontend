@@ -75,4 +75,12 @@ export default {
     'Онлайн-платформа для обучения, помогающая овладеть временем и поднять уровень жизни',
   'pages.course.search.placeholder': 'Введите поисковый запрос',
   'pages.course.search.button': 'Поиск',
+  'pages.register.account.name': 'Учётная запись',
+  'pages.register.account.user.role': 'Роль',
+  'pages.register.step.one': 'Информация о пользователе',
+  'pages.register.step.two': 'Установить пароль',
+  'pages.register.password.name': 'Пароль',
+  'pages.register.password.check': 'Подтвердите пароль',
+  'pages.register.success': 'Регистрация успешна!',
+  'pages.register.failure': 'Ошибка регистрации, пожалуйста, попробуйте снова!',
 };

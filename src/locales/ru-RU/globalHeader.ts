@@ -14,4 +14,6 @@ export default {
   'component.noticeIcon.cleared': 'Очищено',
   'component.noticeIcon.empty': 'Нет данных',
   'component.noticeIcon.view-more': 'Показать больше',
+  'component.user.logout': 'Выход',
+  'component.user.password.change': 'Сменить пароль',
 };

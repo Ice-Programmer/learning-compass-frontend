@@ -7,12 +7,11 @@ import {
   ProFormCheckbox,
   ProFormText,
 } from '@ant-design/pro-components';
-import { FormattedMessage, Helmet, history, SelectLang, useIntl, useModel } from '@umijs/max';
+import { FormattedMessage, history, SelectLang, useIntl, useModel } from '@umijs/max';
 import { message, Tabs } from 'antd';
 import { createStyles } from 'antd-style';
 import React, { useState } from 'react';
 import { flushSync } from 'react-dom';
-import Settings from '../../../../config/defaultSettings';
 
 const useStyles = createStyles(({ token }) => {
   return {
@@ -287,6 +286,7 @@ const Login: React.FC = () => {
               style={{
                 float: 'right',
               }}
+              onClick={() => {history.push("/user/register")}}
             >
               <FormattedMessage id="pages.login.register" defaultMessage="新用户去注册" />
             </a>

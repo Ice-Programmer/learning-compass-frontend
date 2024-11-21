@@ -1,5 +1,6 @@
 import { userLogoutUsingPost } from '@/services/learning-compass/userController';
-import { LogoutOutlined, SettingOutlined, UserOutlined } from '@ant-design/icons';
+import { useIntl } from '@@/exports';
+import { LogoutOutlined, RedoOutlined, SettingOutlined, UserOutlined } from '@ant-design/icons';
 import { FormattedMessage, history, useModel } from '@umijs/max';
 import { message, Spin } from 'antd';
 import { createStyles } from 'antd-style';
@@ -8,7 +9,6 @@ import type { MenuInfo } from 'rc-menu/lib/interface';
 import React, { useCallback } from 'react';
 import { flushSync } from 'react-dom';
 import HeaderDropdown from '../HeaderDropdown';
-import { useIntl } from '@@/exports';
 
 export type GlobalHeaderRightProps = {
   menu?: boolean;
@@ -40,7 +40,6 @@ const useStyles = createStyles(({ token }) => {
 });
 
 export const AvatarDropdown: React.FC<GlobalHeaderRightProps> = ({ menu, children }) => {
-
   const intl = useIntl();
 
   /**
@@ -79,6 +78,10 @@ export const AvatarDropdown: React.FC<GlobalHeaderRightProps> = ({ menu, childre
           setInitialState((s) => ({ ...s, currentUser: undefined }));
         });
         loginOut();
+        return;
+      }
+      if (key === 'change-password') {
+        history.push(`/user/password/change`);
         return;
       }
       history.push(`/account/${key}`);
@@ -130,6 +133,11 @@ export const AvatarDropdown: React.FC<GlobalHeaderRightProps> = ({ menu, childre
       key: 'logout',
       icon: <LogoutOutlined />,
       label: <FormattedMessage id="menu.account.logout" defaultMessage="退出登录" />,
+    },
+    {
+      key: 'change-password',
+      icon: <RedoOutlined />,
+      label: <FormattedMessage id="component.user.password.change" defaultMessage="切换密码" />,
     },
   ];
 

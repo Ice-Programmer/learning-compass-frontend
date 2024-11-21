@@ -277,6 +277,10 @@ declare namespace API {
     tagList?: string[];
   };
 
+  type PostFavourAddRequest = {
+    postId?: number;
+  };
+
   type PostQueryRequest = {
     content?: string;
     courseId?: number;
@@ -289,6 +293,7 @@ declare namespace API {
     notId?: number;
     pageSize?: number;
     postId?: number;
+    postIds?: number[];
     postType?: number;
     searchText?: string;
     sortField?: string;
@@ -296,6 +301,10 @@ declare namespace API {
     tagList?: string[];
     thumbUserId?: number;
     userId?: number;
+  };
+
+  type PostThumbAddRequest = {
+    postId?: number;
   };
 
   type PostVO = {
@@ -311,6 +320,7 @@ declare namespace API {
     pictureList?: string[];
     postId?: number;
     postType?: number;
+    replyPostList?: PostVO[];
     tagList?: string[];
     thumbNum?: number;
     updateTime?: string;
@@ -356,6 +366,12 @@ declare namespace API {
     userAvatar?: string;
     userName?: string;
     userRole?: string;
+  };
+
+  type UserChangePasswordRequest = {
+    checkPassword?: string;
+    newPassword?: string;
+    originalPassword?: string;
   };
 
   type UserLoginRequest = {

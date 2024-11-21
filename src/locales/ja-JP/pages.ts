@@ -71,4 +71,12 @@ export default {
   'pages.home.content.content': '時間をマスターし、人生を向上させるオンライン学習プラットフォーム',
   'pages.course.search.placeholder': '検索内容を入力してください',
   'pages.course.search.button': '検索',
+  'pages.register.account.name': 'アカウント',
+  'pages.register.account.user.role': '役割',
+  'pages.register.step.one': 'ユーザー情報',
+  'pages.register.step.two': 'パスワードを設定',
+  'pages.register.password.name': 'パスワード',
+  'pages.register.password.check': 'パスワードの確認',
+  'pages.register.success': '登録成功！',
+  'pages.register.failure': '登録に失敗しました。再試行してください！',
 };
